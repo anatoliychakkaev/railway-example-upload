@@ -1,0 +1,2 @@
+exports.routes = function (map) {
+};
