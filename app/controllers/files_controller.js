@@ -9,9 +9,9 @@ action('new', function () {
 });
 
 action('create', function () {
-    console.log(req.form);
     this.file = new File();
-    this.file.upload(req.form.files.file.name, req.form.files.file.path, function (err) {
+    var tmpFile = req.form.files.file;
+    this.file.upload(tmpFile.name, tmpFile.path, function (err) {
         if (err) {
             console.log(err);
             this.title = 'New file';

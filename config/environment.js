@@ -8,7 +8,7 @@ app.configure(function(){
     app.set('view engine', 'ejs');
     app.set('jsDirectory', '/javascripts/');
     app.set('cssDirectory', '/stylesheets/');
-    app.use(form({ keepExtensions: true }));
+    app.use(form({ keepExtensions: true })); // https://github.com/anatoliychakkaev/connect-form-sync
     app.use(express.bodyParser());
     app.use(express.cookieParser());
     app.use(express.session({secret: 'secret'}));
