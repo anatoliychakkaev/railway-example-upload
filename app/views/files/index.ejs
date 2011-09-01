@@ -1,0 +1,9 @@
+<h1>Index of file</h1>
+
+<% files.forEach(function (file) { %>
+  file #<%= file.id %>
+  <%- link_to('Edit', path_to.edit_file(file)) %>
+  <%- link_to('Delete', path_to.file(file), {method: 'delete', remote: true, jsonp: '(function (u) {location.href = u;})'}) %><br/>
+<% }); %>
+
+<%- link_to('New file', path_to.new_file) %>

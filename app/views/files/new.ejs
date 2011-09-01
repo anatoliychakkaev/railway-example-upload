@@ -1,0 +1,7 @@
+<h1>New file</h1>
+
+<% form_for(file, {action: path_to.files, method: 'POST', id: "file_form", enctype: 'multipart/form-data'}, function (form) { %>
+  <%- form.input('file', {type: 'file'}) %>
+  <%- form.submit('Create file') %> or
+  <%- link_to('Cancel', path_to.files) %>
+<% });%>

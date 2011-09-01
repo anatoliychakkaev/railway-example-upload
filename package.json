@@ -1,10 +1,10 @@
-{ "name": "File handling app"
+{ "name": "railway-files"
 , "version": "0.0.1"
 , "engines": ["node >= 0.4.0"]
 , "main": "server.js"
 , "dependencies":
-  { "ejs":       ">= 0"
-  , "ejs-ext":   ">= 0"
+  { "ejs":              ">= 0"
+  , "ejs-ext":          ">= 0"
   , "express":          ">= 2.2.2"
   , "connect":          ">= 1.4.2"
   , "railway":          ">= 0.1.6"
