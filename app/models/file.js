@@ -4,13 +4,23 @@ function File(name) {
     this.id = this.name = name;
 }
 
+// The directory to upload files too.
+File.directory = app.root + '/data';
+
 File.find = function (cb) {
     var files = [];
-    fs.readdir(app.root + '/data', function (err, fileNames) {
-        fileNames.forEach(function (file) {
-            files.push(new File(file));
-        });
-        cb(err, files);
+    fs.exists(File.directory, function(exists) {
+        if (exists) {
+            fs.readdir(File.directory, function (err, fileNames) {
+                fileNames.forEach(function (file) {
+                    files.push(new File(file));
+                });
+                cb(err, files);
+            });
+        }
+        else {
+            cb('You must create the directory ' + File.directory + '.');
+        }
     });
 };
 
@@ -23,7 +33,7 @@ File.prototype.remove = function (cb) {
 };
 
 File.prototype.filename = function () {
-    return app.root + '/data/' + this.name;
+    return File.directory + '/' + this.name;
 };
 
 File.prototype.upload = function (name, path, cb) {

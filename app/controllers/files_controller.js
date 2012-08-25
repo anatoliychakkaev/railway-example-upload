@@ -26,9 +26,14 @@ action('create', function () {
 
 action('index', function () {
     File.find(function (err, files) {
-        this.files = files;
-        this.title = 'Files index';
-        render();
+        if (err) {
+            send(err);
+        }
+        else {
+            this.files = files;
+            this.title = 'Files index';
+            render();
+        }
     }.bind(this));
 });
 
