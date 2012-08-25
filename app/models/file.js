@@ -37,4 +37,4 @@ File.prototype.rename = function (name, cb) {
     fs.rename(oldPath, this.filename(), cb);
 };
 
-export('File', File);
+module.exports = File

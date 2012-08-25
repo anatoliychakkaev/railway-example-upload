@@ -1,6 +1,6 @@
 load('application');
 
-before(loadFile, {only: ['show', 'edit', 'update', 'destroy']});
+before(loadFile, {only: ['create', 'show', 'edit', 'update', 'destroy']});
 
 action('new', function () {
     this.file = new File;
@@ -10,7 +10,7 @@ action('new', function () {
 
 action('create', function () {
     this.file = new File();
-    var tmpFile = req.form.files.file;
+    var tmpFile = req.files.file;
     this.file.upload(tmpFile.name, tmpFile.path, function (err) {
         if (err) {
             console.log(err);
